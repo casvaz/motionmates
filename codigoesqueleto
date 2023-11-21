@@ -1,0 +1,87 @@
+import flet as ft
+import random
+
+def main(page: ft.Page):
+    page.title = "MotionMates"
+
+    def rutinatobilloypie(e):
+        listaejerciciostobillo1=["Posición: sentado con las rodillas extendidas. Adopte una dorsiflexión acusada de los pies, tratando de mantener los dedos del pie relajados.",
+                                "Posición: sentado con las rodillas extendidas. Coloque una toalla o un cinturón debajo del antepié y ejerce tracción dorsal sobre él.",
+                                 "Posición: sentado con los pies planos sobre el suelo. Deslice el pie hacia atrás, manteniendo el talón sobre el suelo.",
+                                 "Posición: de pie sobre una tabla inclinada con los pies orientados hacia fuera y los talones hacia abajo. Habrá más estiramiento si se incina hacia delante.",
+                                 "Posición: de pie, con el antepié sobre el borde de un peldaño o escabel y el talón sobre el borde. Baje lentamente el talón sobre el borde del peldaño."]
+        listaejerciciostobillo2=["Posición: sentado, con el pie que se va a estirar sobre la rodilla opuesta. Utilice la mano contraria y levanta el pie en inversión.",
+                                 "Posición: sentado o de pie, con los piesorientados hacia fuera. Gire el peso sobre el borde lateral de los pies. Si es posible, camine una distancia corta sobre los bordes laterales."]
+        listaejerciciostobillo3=["Posición: sentado con las rodillas extendidas. Mueva primero en dorsiflexión e inversión los pies para ejercitar el músculo tibial anterior; a continuación, mueva en flexión plantar e invierta los pies para ejercitar el músculo tibial posterior.",
+                                 "Posición: sentado o de pie, con los pies en el suelo. Flexione los dedos del pie ante la resistencia del suelo. Coloque una toalla debajo de los pies, trate de arrugarla manteniendo el talón sobre el suelo y flexionando los dedos.",
+                                 "Posición: de pie. Pruebe a caminar concentrándose en la colocación de los pies y el desplazamiento del peso del cuerpo en cada paso. Comience apoyando el peso del cuerpo sobre el talón y luego lo desplaza a lo largo del borde lateral del pie hasta la cabeza del V metatarsiano y sobre la cabeza del I metatarsiano y del dedo gordo para la fase de despegue del pie."]
+        ejerciciotobillo1=random.choice(listaejerciciostobillo1)
+        ejerciciotobillo2=random.choice(listaejerciciostobillo2)
+        ejerciciotobillo3=random.choice(listaejerciciostobillo3)
+        page.views.append(
+                ft.View(
+                    "/tobilloypie",
+                    [
+                        ft.Column([ft.Text("Primer ejercicio: " + ejerciciotobillo1,style=ft.TextThemeStyle.LABEL_LARGE),
+                                   ft.Text("Segundo ejercicio: " + ejerciciotobillo2,style=ft.TextThemeStyle.LABEL_LARGE),
+                                   ft.Text("Tercer ejercicio: " + ejerciciotobillo3,style=ft.TextThemeStyle.LABEL_LARGE)]),
+                        ft.ElevatedButton("Menú principal", on_click=lambda _: page.go("/"))                    
+                    ],
+                )
+            )
+        page.update()
+        
+
+    def route_change(route):
+        page.views.clear()
+        page.views.append(
+            ft.View(
+                "/",
+                [
+                    ft.AppBar(title=ft.Text("MotionMates"), bgcolor=ft.colors.SURFACE_VARIANT),
+                    ft.ElevatedButton("Tobillo y pie", on_click=lambda _: page.go("/tobilloypie")),
+                    ft.ElevatedButton("Rodilla", on_click=lambda _: page.go("/rodilla")),
+                ],
+            )
+        )
+        if page.route == "/tobilloypie":
+            page.views.append(
+                ft.View(
+                    "/tobilloypie",
+                    [
+                        ft.AppBar(title=ft.Text("Ejercicios para tobillo y pie"), bgcolor=ft.colors.SURFACE_VARIANT),
+                        ft.Text("Las patologías más frecuentes presentes en el tobillo y pie, ya sea por rehabilitación postquirúrgica u otra razón, son desequilibrios de la fuerza y flexibilidad en ellos debidas principalmente a su desuso y atrofia de los músculos que los componen.", style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text("Podemos ofrecerle una rutina de tres tipos de ejercicios:",style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text("1.- Técnicas para el autoestiramiento de músculos acortados",style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text("2.- Técnicas para reeducar y fortalecer los músculos necesarios para el control ortostático del tobillo y el pie",style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text("3.- Técnicas para reeducar y fortalecer los músculos necesarios para el control ortostático del tobillo y el pie",style=ft.TextThemeStyle.LABEL_LARGE),
+
+                        ft.Row([ft.ElevatedButton("Crear rutina",on_click=rutinatobilloypie),
+                               ft.ElevatedButton("Menú principal", on_click=lambda _: page.go("/"))])
+                    ],
+                )
+            )
+        page.update()
+
+        if page.route == "/rodilla":
+            page.views.append(
+                ft.View(
+                    "/rodilla",
+                    [
+                        ft.AppBar(title=ft.Text("Ejercicios para rodilla"), bgcolor=ft.colors.SURFACE_VARIANT),
+                        ft.ElevatedButton("Menú principal", on_click=lambda _: page.go("/")),
+                    ],
+                )
+            )
+        page.update()
+    def view_pop(view):
+        page.views.pop()
+        top_view = page.views[-1]
+        page.go(top_view.route)
+
+    page.on_route_change = route_change
+    page.on_view_pop = view_pop
+    page.go(page.route)
+
+
+ft.app(target=main, view=ft.AppView.WEB_BROWSER)
