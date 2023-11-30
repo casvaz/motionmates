@@ -1,0 +1,2279 @@
+from flet import *
+from views import views_handler
+
+
+def main(page: Page):
+    BG = '#212F3C'
+    FWG = 'transparent'
+    FG = '#48C9B0'
+    PINK = '#eb06ff'
+
+    circle = Stack(
+        controls=[
+            Container(
+                width=100,
+                height=100,
+                border_radius=50,
+                bgcolor='white12'
+            ),
+            Container(
+                gradient=SweepGradient(
+                    center=alignment.center,
+                    start_angle=0.0,
+                    end_angle=3,
+                    stops=[0.5, 0.5],
+                    colors=['#00000000', PINK],
+                ),
+                width=100,
+                height=100,
+                border_radius=50,
+                content=Row(alignment='center',
+                            controls=[
+                                Container(padding=padding.all(5),
+                                          bgcolor=BG,
+                                          width=90, height=90,
+                                          border_radius=50,
+                                          content=Container(bgcolor=FG,
+                                                            height=80, width=80,
+                                                            border_radius=40,
+                                                            content=CircleAvatar(opacity=0.8,
+                                                                                 foreground_image_url="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                                                                                 )
+                                                            )
+                                          )
+                            ],
+                            ),
+            ),
+
+        ]
+    )
+
+    def shrink(e):
+        page_2.controls[0].width = 120,
+        page_2.controls[0].scale = transform.Scale(
+            0.4, alignment=alignment.center_right)
+        page_2.controls[0].border_radius = border_radius.only(
+            topleft=35,
+            topRight=0,
+            bottomleft=35,
+            bottomRight=0
+        )
+        page_2.controls[0].update()
+
+    def restore(e):
+        page_2.controls[0].width = 400
+        page_2.controls[0].border_radius = 35
+        page_2.controls[0].scale = transform.Scale(
+            1, alignment=alignment.center_right)
+        page_2.update()
+
+    def navigate_to_category_page(category):
+        page.go(f'/{category.lower()}')
+       
+    def navigate_to_page(e, target_page):
+        page.go(target_page)
+
+    create_task_view = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/'), bgcolor=BG)
+            ]
+        ),
+    )
+    pagina1 = Container(
+        content=Container(on_click=lambda _: page.go('/'),
+                          height=40, width=40,
+                          content=Text('x')
+                          )
+    )
+    pagina2 = Container(
+        content=Container(on_click=lambda _: page.go('/'),
+                          height=40, width=40,
+                          content=Text('x')
+                          )
+    )
+    ejerciciospie = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/pie'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciosdepie = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientopie = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientopie1 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientopie'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientopie2 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientopie'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientopie3 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientopie'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientopie4 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientopie'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciopie1 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciopie2 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciopie3 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciopie4 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciospie'), bgcolor=BG)
+           ]
+       ),
+    )
+    Pie = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/'), bgcolor=BG)
+           ]
+       ),
+    )
+    tutorialangulo = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/rodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciosrodilla = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/rodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciosderodilla = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientorodilla = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientorodilla1 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientorodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientorodilla2 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientorodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    estiramientorodilla3 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientorodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciorodilla1 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciorodilla2 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciorodilla3 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    ejerciciorodilla4 = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosrodilla'), bgcolor=BG)
+            ]
+        ),
+    )
+    Rodilla = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/'), bgcolor=BG)
+           ]
+       ),
+    )
+    Cadera = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/'), bgcolor=BG)
+            ]
+        ),           
+    )
+    ejercicioscadera = Container(
+        Stack(
+            controls=[
+                FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/cadera'), bgcolor=BG)
+            ]
+        ),         
+    )
+    estiramientocadera = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejercicioscadera'), bgcolor=BG)
+           ]
+       ),         
+    )
+    ejerciciosdecadera = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejercicioscadera'), bgcolor=BG)
+           ]
+       ),         
+    )
+    estiramientocadera1 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    estiramientocadera2 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    estiramientocadera3 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    estiramientocadera4 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    estiramientocadera5 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    estiramientocadera6 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/estiramientocadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciocadera1 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosdecadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciocadera2 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosdecadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciocadera3 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosdecadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciocadera4 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosdecadera'), bgcolor=BG)
+           ]
+       ),
+    )
+    ejerciciocadera5 = Container(
+       Stack(
+           controls=[
+               FloatingActionButton(height=30, width=30, icon=icons.ARROW_BACK_OUTLINED, on_click=lambda _: page.go('/ejerciciosdecadera'), bgcolor=BG)
+           ]
+       ),
+    )
+
+    tasks = Column(
+    height=400,
+    scroll='auto',
+    controls=[
+        Container(
+            height=70,
+            width=400,
+            bgcolor=FWG,
+            border_radius=25,
+            content=FloatingActionButton(
+                text='Inicia sesión',
+                on_click=lambda e: navigate_to_page('/inicio')
+            ),
+        ),
+        Container(
+            height=70,
+            width=400,
+            bgcolor=FG,
+            border_radius=25,
+            content=FloatingActionButton(
+                text='Registrate',
+                on_click=lambda e: navigate_to_page('/registro')
+            ),
+        ),
+    ]
+)
+
+    category_images = {
+        'Pie': 'https://media.istockphoto.com/id/93019150/es/foto/roentgenogram.jpg?s=612x612&w=0&k=20&c=bmToWM6GMFl02uI3-p7A0YPdH_oSiagUHcPcUwduWJw=',
+        'Rodilla': 'https://labs.doctoralia.com.mx/blog/wp-content/uploads/radiografia-rodilla.jpg',
+        'Cadera': 'https://doctorlopezcapape.com/site/imgs/cirugia/Coxartrosis-RX1.jpg'
+    }
+
+    categories_card = Row(
+        scroll='auto'
+    )
+
+    for category, image_path in category_images.items():
+        categories_card.controls.append(
+            Container(
+                border_radius=100,
+                bgcolor=FWG,
+                height=125,
+                width=170,
+                padding=15,
+                content=Column(
+                    controls=[
+                        Container(
+                            on_click=lambda _, category=category: navigate_to_category_page(category),
+                            content=Image(
+                                src=image_path,
+                                border_radius=100,
+                            )
+                        )
+                    ]                          
+                )
+            )
+        )
+
+    first_page_contents = Container(
+        content=Column(
+            controls=[
+                Row(
+                    controls=[
+                        Container(on_click=lambda e: shrink(e),
+                                  content=Icon(
+                                      icons.MENU,
+                                      color='white'
+                                  ))
+                    ]
+                ),
+                Container(height=20),
+                Text(
+                    value='M O T I O N  M A T E S',
+                    size=30,
+                    weight=FontWeight.BOLD,
+                    color='white',
+                    text_align='center',
+                    width=400,
+                ),
+                Text(
+                    value='Recupera tu bienestar, un paso a la vez',
+                    italic=True,
+                    size=15,
+                    weight=FontWeight.BOLD,
+                    color='white',
+                    text_align='center',
+                    width=400,
+                ),
+                Container(
+                    padding=padding.only(top=10, bottom=20),
+                    content=categories_card,
+                ),
+                Text('¿Deseas guardar tu progreso? \n Regístrate',
+                     italic=True,
+                     size=15,
+                     weight=FontWeight.BOLD,
+                     color='white',
+                     text_align='center',
+                     width=400,
+                ),
+                Stack(
+                    controls=[
+                        tasks, FloatingActionButton(right=20,top=160,
+                                                   icon=icons.INFO, on_click=lambda _: page.go('/create_task')
+                                                   )
+                    ]
+                )
+            ]
+        )
+    )
+
+    page_1 = Container(
+        width=400,
+        height=850,
+        bgcolor=BG,
+        border_radius=35,
+        padding=padding.only(left=50, top=60, right=200),
+
+        content=Column(
+            controls=[
+                Row(alignment='end',
+                    controls=[
+                        Container(border_radius=25,
+                                  padding=padding.only(
+                                      top=13, left=13, ),
+                                  height=50,
+                                  width=50,
+                                  border=border.all(color='white', width=1),
+                                  on_click=lambda e: restore(e),
+                                  content=Text('<')
+                                  )
+                    ]
+                ),
+                Container(height=20),
+                circle,
+                Text('Olivia\nMitchel', size=32, weight='bold'),
+                Container(height=25),
+                Row(controls=[
+                    Icon(icons.FAVORITE_BORDER_SHARP, color='white60'),
+                    Text('Templates', size=15, weight=FontWeight.W_300, color='white', font_family='poppins')
+                ]),
+                Container(height=5),
+                Row(controls=[
+                    Icon(icons.CARD_TRAVEL, color='white60'),
+                    Text('Templates', size=15, weight=FontWeight.W_300, color='white', font_family='poppins')
+                ]),
+                Container(height=5),
+                Row(controls=[
+                    Icon(icons.CALCULATE_OUTLINED, color='white60'),
+                    Text('Templates', size=15, weight=FontWeight.W_300, color='white', font_family='poppins')
+                ]),
+
+                Image(src="/images/1.png",
+                      width=300,
+                      height=200,
+                ),
+                Text('Good', color=FG, font_family='poppins', ),
+                Text('Consistency', size=22)
+
+            ]
+        )
+    )
+
+    page_2 = Row(
+        alignment='end',
+        controls=[
+            Container(
+                width=400,
+                height=650,
+                bgcolor=BG,
+                border_radius=35,
+                animate=animation.Animation(600, AnimationCurve.DECELERATE),
+                animate_scale=animation.Animation(400, curve="decelerate"),
+                padding=padding.only(
+                    top=50, left=20,
+                    right=20, bottom=5
+                ),
+                content=Column(
+                    controls=[
+                        first_page_contents])
+                )
+        ]
+    )
+    container = Container(
+        width=400,
+        height=650,
+        bgcolor=BG,
+        border_radius=35,
+        content=Stack(
+            controls=[
+                page_1,
+                page_2,
+            ]
+        )
+    )
+    pages = {
+        '/': View(
+            "/",
+            [
+                container
+            ],
+        ),
+        '/create_task': View(
+            "/create_task",
+            [
+                Container(
+                    padding=15,
+                    width=400,
+                    height=850,
+                    bgcolor=BG,
+                    border_radius=35,
+                    content=Column(
+                        controls=[
+                            create_task_view,
+                            Image(src='presentacion.png', width=400, height=400, border_radius=100),
+                            Text("¡Únete a nosotros en este emocionante viaje de descubrimiento, aprendizaje y conexión en Motion Mates!",
+                                 size=20, weight=FontWeight.BOLD, color="white",
+                                 text_align='center',
+                                 width=390),
+                            Text(' \n ¿Tienes alguna duda ¡CONTACTANOS! \n',
+                                 size=15, weight=FontWeight.BOLD,color="white",
+                                 text_align='center',
+                                 width=390),
+                            Container(
+                                height=70,
+                                width=350,
+                                padding=10,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                    text='MotionMates2023@gmail.com',
+                                    on_click=lambda e: page.launch_url("mailto:MotionMates2023@gmail.com"))
+                                    )
+                        ]
+                    )
+                )
+           ],
+       ),
+        '/pagina1': View(
+            "/pagina1",
+            [
+                pagina1,
+                Container(
+                    width=400,
+                    height=850,
+                    bgcolor=BG,
+                    border_radius=35,
+                    content=Stack(
+                        controls=[
+                            Text('Inicio sesion', size=40,
+                             weight=FontWeight.BOLD,
+                             text_align='center',
+                             width=400,)
+                        ]
+                    )
+                )
+            ],
+        ),
+
+        '/ejerciciospie': View(
+            "/ejerciciospie",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciospie,
+                           Text('Ejercicios', size=40, color="white",
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Text('PRECUACIÓN:',
+                                size=20,
+                                weight=FontWeight.BOLD, 
+                                color='red',
+                                text_align='center',
+                                width=400,),
+                           Text('Si el paciente usa ejercicios que implican cargar peso para estirar los músculos flexores plantares, es importante que lleve calzado con buen soporte para los arcos o puede colocar un paño doblado debajo del borde interno del pie. Esto ayuda a reducir la tensión en los arcos del pie. Para enfocarse en estirar el sóleo, es recomendable flexionar la rodilla. Para estirar los gemelos, se debe mantener la rodilla extendida mientras se mueve el tobillo hacia arriba.:',
+                                size=15, color="white",
+                                weight=FontWeight.BOLD, 
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientopie')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicios',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciosdepie')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Encuesta",
+                                on_click=lambda e:(page.launch_url("https://docs.google.com/forms/d/e/1FAIpQLSc9IeAchTNcFro_zGSHNGODojYl6IEFGhnwgcaiKIEtQmCxhw/viewform"))))
+                       ]
+                   )
+               )
+           ],
+       ),
+       '/ejerciciosdepie': View(
+            "/ejerciciosdepie",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciosdepie,
+                           Text('Ejercicios', size=40,color="white",
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 1',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciopie1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 2',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciopie2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 3',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciopie3')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 4',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciopie4')
+                                   )),
+                       ]
+                   )
+               )
+           ],
+       ),
+        '/estiramientopie': View(
+            "/estiramientopie",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientopie,
+                           Text('Estiramiento', size=40,color="white",
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 1',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientopie1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 2',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientopie2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 3',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientopie3')
+                                   )),
+                           Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 4',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientopie4')
+                                   ))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientopie1': View(
+            "/estiramientopie1",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientopie1,
+                           Text('Estiramiento 1', color="white",
+                                size=40,
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado con las piernas estiradas. Coloca una toalla o un cinturón debajo de la parte delantera del pie y tira hacia arriba para estirar.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/xx20OAlqPdU"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientopie2': View(
+            "/estiramientopie2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientopie2,
+                           Text('Estiramiento 2', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado con los pies apoyados en el suelo. Desliza el pie hacia atrás, asegurándose de mantener el talón en contacto con el suelo.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/7m10-BG58hE"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientopie3': View(
+            "/estiramientopie3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientopie3,
+                           Text('Estiramiento 3', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado o de pie, con los pies apuntando hacia afuera. Luego, el paciente desplaza el peso hacia los bordes laterales de los pies. Si es capaz, puede caminar una corta distancia sobre los bordes laterales.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/dWM81vFWm3I"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientopie4': View(
+            "/estiramientopie4",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ estiramientopie4,
+                           Text('Estiramiento 4', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado, con el pie que quiere estirar cruzado sobre la rodilla opuesta. Luego, usando la mano contraria, levanta el pie hacia arriba en dirección hacia el interior, asegurándose de que el talón gire hacia adentro y no solo el antepié.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/CohXRL0fNnM"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciopie1': View(
+            "/ejerciciopie1",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ ejerciciopie1,
+                           Text('Ejercicio 1', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado con los pies en el suelo. Intenta levantar el arco interno de los pies manteniendo la parte delantera y trasera apoyadas en el suelo (aunque puede haber una rotación hacia afuera de la espinilla, pero no separar las caderas). Repite la actividad hasta que tenga buen control y luego avanza para realizar el movimiento de pie.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/41Ikc98Hj0U"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciopie2': View(
+            "/ejerciciopie2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciopie2,
+                           Text('Ejercicio 2', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente intenta caminar prestando atención a cómo coloca los pies y cambia el peso del cuerpo en cada paso. Al comenzar, pone el peso en el talón y luego lo traslada hacia el borde externo del pie, moviéndolo hacia adelante, pasando por la parte externa del pie hasta llegar a la cabeza del quinto dedo. Luego, lleva el peso hacia la parte delantera del pie, pasando sobre la cabeza del dedo gordo al despegar el pie del suelo.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/lh0p4M-25gk"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciopie3': View(
+            "/ejerciciopie3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciopie3,
+                           Text('Ejercicio 3', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado con las piernas estiradas y una banda elástica debajo del antepié. Luego, el paciente levanta el pie hacia arriba, empujando contra la resistencia de la banda elástica.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/7DkNhq2H5UI"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciopie4': View(
+            "/ejerciciopie4",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciopie4,
+                           Text('Ejercicio 4', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado con las piernas estiradas o dobladas, y los tobillos cruzados. Luego, presiona los bordes laterales de los pies juntos como si estuviera tratando de abrirlos hacia afuera y mantiene la contracción de los músculos en esa posición.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/wK_htsXdN1s"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/pie': View(
+        "/pie",
+        [
+            Container(
+                padding=15,
+                width=400,
+                height=850,
+                bgcolor=BG,
+                border_radius=35,
+                content=Column(
+                    controls=[
+                        Pie,
+                        Text('Pie', size=40,color="white",
+                             weight=FontWeight.BOLD,
+                             text_align='center',
+                             width=400,),
+                        Image(src='pie.png', width=400, height=100, border_radius=100),
+                        Text('El pie debe soportar el peso del cuerpo en bipedestación'
+                             'también ha de adaptarse para absorber fuerzas y acomodarse a las superficies irregulares \n',
+                             size=15, weight=FontWeight.BOLD,color="white",
+                           #  text_align='center',
+                             width=390),
+                        Text('Las patologías más frecuentes presentes en el tobillo y pie ya sea por rehabilitación postquirúrgica u otra razón, son desequilibrios de la fuerza y flexibilidad en ellos debidas principalmente a su desuso y atrofia de los músculos que los componen \n',
+                             size=15, weight=FontWeight.BOLD,color="white",
+                            # text_align='center',
+                             width=390),
+                        Container(
+                            height=70,
+                            width=400,
+                            padding=10,
+                            bgcolor=FWG,
+                            border_radius=25,
+                            content=FloatingActionButton(
+                                text='Comenzar rutina',
+                                on_click=lambda e: navigate_to_page(e, '/ejerciciospie')
+                                ))
+                    ]
+                )
+            )
+        ],
+    ),
+    '/ejerciciosrodilla': View(
+            "/ejerciciosrodilla",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   padding=15,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ 
+                           ejerciciosrodilla,
+                           Text('Ejercicios', size=40,color="white",
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Text("Las técnicas de ejercicio de esta sección son sugerencias para corregir los desequilibrios así como hacer que el paciente avance en las fases de curación subaguda y rehabilitación crónica del tratamiento.",
+                                size=15,
+                                weight=FontWeight.BOLD, color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientorodilla')
+                                   )),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicios',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciosderodilla')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Encuesta",
+                                on_click=lambda e:(page.launch_url("https://docs.google.com/forms/d/e/1FAIpQLSc9IeAchTNcFro_zGSHNGODojYl6IEFGhnwgcaiKIEtQmCxhw/viewform")))),
+                            Container(
+                               height=70,
+                               padding=10,
+                               width=400,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text="Tutorial: cálcular ángulo",
+                                   on_click=lambda e: navigate_to_page(e, '/tutorialangulo')
+                                   ))
+                       ]
+                   )
+               )
+           ],
+       ),
+       '/ejerciciosderodilla': View(
+            "/ejerciciosderodilla",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   padding=15,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciosderodilla,
+                           Text('Ejercicios', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 1',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciorodilla1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 2',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciorodilla2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 3',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciorodilla3')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 4',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciorodilla4')
+                                   )),
+                        ]
+                   )
+               )
+           ],
+       ),
+        '/estiramientorodilla': View(
+            "/estiramientorodilla",
+            [
+               
+               Container(
+                   width=400,
+                   padding=15,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientorodilla,
+                           Text('Estiramiento', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 1',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientorodilla1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 2',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientorodilla2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 3',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientorodilla3')
+                                   )),
+                           ]
+                       )
+                   )
+               ]
+            ),
+
+        "/tutorialangulo": View(
+            "/tutorialangulo",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[tutorialangulo,
+                           Text('Tutorial para cálcular el ángulo de flexión de la rodilla', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('Para asegurar la correcta realización de los ejercicios, se recomienda instalar la app Angle Meter, he aquí un tutorial de su uso:', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Tutorial",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/tV48vq5m-6Q"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientorodilla1': View(
+            "/estiramientorodilla1",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientorodilla1,
+                           Text('Estiramiento 1', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('Este ejercicio de autoestiramiento implica acostarse boca arriba con las nalgas contra la pared y las piernas estiradas verticalmente a lo largo de la misma. La idea es flexionar gradualmente la rodilla afectada, deslizando el pie hacia abajo por la pared, y luego volver a deslizarlo hacia arriba. Asegúrate de mantener el pie en una posición cómoda durante el movimiento. Este ejercicio asistido por la gravedad puede ser beneficioso para estirar la zona y mejorar la movilidad de la rodilla.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/Bcn58r0br58"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientorodilla2': View(
+            "/estiramientorodilla2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientorodilla2,
+                           Text('Estiramiento 2', color="white",
+                                size=40,
+                                weight=FontWeight.BOLD,
+                                text_align='center',
+                                width=400,),
+                           Text('Este estiramiento implica ponerse de pie con el pie de la rodilla afectada en un escalón. Inclinándose hacia adelante sobre el pie estabilizado, flexionas la rodilla hasta donde sea cómodo. Puedes balancearte suavemente hacia adelante y hacia atrás o simplemente mantener la posición de estiramiento. Comienza con un escalón bajo y aumenta la altura a medida que tu capacidad de movimiento mejora. Este ejercicio ayuda a trabajar la amplitud de movimiento en la rodilla.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/WNcNEPRe6YE"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientorodilla3': View(
+            "/estiramientorodilla3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[estiramientorodilla3,
+                           Text('Estiramiento 3', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('En este estiramiento mientras estás sentado, te sientas en una silla con la rodilla afectada doblada completamente hacia adelante y el pie apoyado firmemente en el suelo. Luego, inclínate hacia adelante en el asiento de la silla, asegurándote de que el pie no se deslice. Debes mantener cómodamente la posición de estiramiento para trabajar los músculos extensores de la rodilla. Este ejercicio ayuda a estirar y relajar la musculatura en la parte posterior de la rodilla.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/tSj-Jzzv_Cc"))))
+                           ]
+                       )
+                   )
+               ]
+        ),
+        '/ejerciciorodilla1': View(
+            "/ejerciciorodilla1",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ ejerciciorodilla1,
+                           Text('Ejercicio 1', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('En este caso, el paciente debe apretar el músculo del muslo (cuádriceps) sin mover la pierna. Esto hace que la rótula se desplace hacia arriba. La persona tiene que mantener esta posición apretada hasta contar hasta 10.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/PfTA0V-I_3k"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciorodilla2': View(
+            "/ejerciciorodilla2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciorodilla2,
+                           Text('Ejercicio 2', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('En esta situación, el paciente está de pie y se agarra de algo sólido para mantener el equilibrio. Sujeta el pie y dobla la rodilla . La máxima resistencia de la gravedad ocurre cuando la rodilla se flexiona a 90 grados. Para hacerlo más desafiante, se pueden usar tobilleras con peso o una bota con peso. Si el paciente dobla la cadera, se estabiliza poniendo la parte delantera del muslo contra una pared o algún objeto firme.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/nAyZ0hI200I"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciorodilla3': View(
+            "/ejerciciorodilla3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciorodilla3,
+                           Text('Ejercicio 3', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('Aquí, el paciente está sentado en una silla con la pierna extendida o ligeramente flexionada y el talón apoyado en el suelo. Primero, el paciente presiona el talón hacia abajo contra el suelo y el muslo contra el asiento de la silla. Se enfoca en apretar al mismo tiempo el cuádriceps (músculo frontal del muslo) y los isquiotibiales (músculos en la parte posterior del muslo) para lograr una contracción conjunta alrededor de la rodilla. Se mantiene la contracción muscular, luego se relaja y se repite el proceso. Este ejercicio ayuda a fortalecer y estabilizar la articulación de la rodilla.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                width=400,
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/MRTxaVQQRFs"))))
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/ejerciciorodilla4': View(
+            "/ejerciciorodilla4",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ejerciciorodilla4,
+                           Text('Ejercicio 4', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está de pie con la espalda apoyada en la pared. Flexiona las caderas y las rodillas, deslizándose hacia abajo y luego hacia arriba a lo largo de la pared, levantando y bajando el peso del cuerpo. Este ejercicio ayuda a trabajar los músculos alrededor de las caderas y las rodillas.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=400,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                    text="Video de ejemplo",
+                                    on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/2TPL9nmB1XY")))
+                            )
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/rodilla': View(
+            "/rodilla",
+            [
+               
+               Container(
+                   padding=15,
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[Rodilla,
+                           Text('RODILLA', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400),
+                            Image(src='rodilla.png', width=400, height=100, border_radius=100),
+                           Text('La articulación de la rodilla está diseñada para aportar movilidad y estabilidad; elonga y acorta funcionalmente la extremidad inferior para elevar y bajar el cuerpo o para mover el pie en el espacio',
+                                size=15, weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=390),
+                           Text('Sostiene el cuerpo en bipedestación, y es una unidad funcional primaria de acciones como caminar, escalar y sentarse.',
+                                size=15, weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=390),
+                            Container(
+                                padding=10,
+                                height=70,
+                                width=350,
+                                bgcolor=FWG,
+                                border_radius=25,
+                                content=FloatingActionButton(
+                                text='Comenzar rutina',
+                                on_click=lambda e: navigate_to_page(e, '/ejerciciosrodilla')
+                                ))
+                            
+                       ]
+                   )
+               )
+           ],
+       ),
+       
+        '/cadera': View(
+            "/cadera",
+            [
+                
+                Container(
+                    padding=15,
+                    width=400,
+                    height=850,
+                    bgcolor=BG,
+                    border_radius=35,
+                    content=Column(
+                        controls=[
+                                Cadera,
+                                Text('CADERA', size=40,
+                                     weight=FontWeight.BOLD,color="white",
+                                     text_align='center',
+                                     width=400),
+                                Image(src='cadera.png', width=400, height=100, border_radius=100),
+                                Text('La cadera se compara a menudo con el hombro porque es una articulación triaxial, '
+                                     'capaz de operar en los tres planos del movimiento, '
+                                     'y también porque es el eslabón proximal a su extremidad.',
+                                     size=15,
+                                     weight=FontWeight.BOLD,color="white",
+                                     text_align='center',
+                                     width=390),
+                                Text('La cadera es una articulación estable construida para soportar el peso del cuerpo en carga.',
+                                     size=15,
+                                     weight=FontWeight.BOLD,color="white",
+                                     text_align='center',
+                                     width=390),
+                                Container(
+                                    height=70,
+                                    width=400,
+                                    padding=10,
+                                    bgcolor=FWG,
+                                    border_radius=25,
+                                    content=FloatingActionButton(
+                                        text='Comenzar rutina',
+                                        on_click=lambda e: navigate_to_page(e, '/ejercicioscadera')
+                                        ))
+                                ]
+                            )
+                        )
+                    ]
+                ),
+        '/ejercicioscadera': View(
+            "/ejercicioscadera",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[ 
+                           ejercicioscadera,
+                           Text('Ejercicios', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text("Nos centraremos en una serie de ejercicios diseñados para mejorar la fuerza, flexibilidad y estabilidad de las articulaciones de las rodillas. Estos ejercicios son adecuados tanto para aquellos que buscan prevenir lesiones como para aquellos que desean rehabilitar y fortalecer sus rodillas después de una lesión previa.",
+                                size=15,
+                                weight=FontWeight.BOLD, color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicios',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciosdecadera')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Encuesta",
+                                on_click=lambda e:(page.launch_url("https://docs.google.com/forms/d/e/1FAIpQLSc9IeAchTNcFro_zGSHNGODojYl6IEFGhnwgcaiKIEtQmCxhw/viewform"))))
+                       ]
+                   )
+               )
+           ],
+       ),
+       '/ejerciciosdecadera': View(
+            "/ejerciciosdecadera",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciosdecadera,
+                           Text('Ejercicios', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 1',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciocadera1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 2',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciocadera2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 3',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciocadera3')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 4',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciocadera4')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Ejercicio 5',
+                                   on_click=lambda e: navigate_to_page(e, '/ejerciciocadera5')
+                                   )),
+                           
+                       ]
+                   )
+               )
+           ],
+       ),
+        '/estiramientocadera': View(
+            "/estiramientocadera",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera,
+                           Text('Estiramiento', size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 1',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera1')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 2',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera2')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,
+                               padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 3',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera3')
+                                   )),
+                           Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 4',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera4')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 5',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera5')
+                                   )),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                   text='Estiramiento 6',
+                                   on_click=lambda e: navigate_to_page(e, '/estiramientocadera6')
+                                   )),
+                           ]
+                       )
+                   )
+               ]
+            ),
+        '/estiramientocadera1': View(
+            "/estiramientocadera1",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera1,
+                           Text('Estiramiento 1', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está boca abajo. Está aplicando presión hacia arriba en el pecho y permitiendo que la pelvis se hunda.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/S0VfJNi5lRw"))))                  
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/estiramientocadera2': View(
+            "/estiramientocadera2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera2,
+                           Text('Estiramiento 2', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está acostado boca arriba. Flexiona la cadera y la rodilla del lado opuesto al músculo acortado. Cruza las manos alrededor del muslo y lo acerca al pecho para estabilizar la pelvis.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/kIkweLdwMPs"))))                  
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/estiramientocadera3': View(
+            "/estiramientocadera3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera3,
+                           Text('Estiramiento 3', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente se acuesta boca abajo con la rodilla doblada en el lado que se va a estirar. Agarra el tobillo de ese lado y jala la pierna hacia atrás para estirar la cadera mientras flexiona la rodilla hasta sentir el estiramiento en la parte frontal del muslo.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/D0JJDZTpIm8"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/estiramientocadera4': View(
+            "/estiramientocadera4",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera4,
+                           Text('Estiramiento 4', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está sentado en el suelo con una pierna estirada hacia adelante y la otra flexionada, llevándola hacia afuera tanto como sea posible. Luego, el paciente utiliza el codo del brazo opuesto para apoyarse y gira el cuerpo hacia atrás, estirando la cadera de ese lado.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/vqG06cvBY4E"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/estiramientocadera5': View(
+            "/estiramientocadera5",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera5,
+                           Text('Estiramiento 5', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está acostado boca arriba. Lleva ambas rodillas hacia el pecho, agarrándolas con las manos. Después, flexiona las caderas hasta sentir el estiramiento en la parte de atrás de la cadera y se queda en esa posición.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/L_NrDMfRhfc"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/estiramientocadera6': View(
+            "/estiramientocadera6",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           estiramientocadera6,
+                           Text('Estiramiento 6', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está a gatas en el suelo. Mueve las caderas hacia adelante, arqueando la espalda baja, y luego mantiene esa posición.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/w6j7RebRjFA"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/ejerciciocadera1': View(
+            "/ejerciciocadera1",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciocadera1,
+                           Text('Ejercicio 1', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está de pie, con una pierna sobre un bloque de unos centímetros de alto. El paciente baja y sube alternativamente la pelvis del lado de la pierna no apoyada', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/XmMnjMx5Hbo"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/ejerciciocadera2': View(
+            "/ejerciciocadera2",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciocadera2,
+                           Text('Ejercicio 2', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está de pie. Mueve una pierna hacia afuera, luego la otra. El movimiento se debe limitar a las caderas; no se permite inclinación lateral del tronco. Puedes agregar peso a los tobillos o aplicar resistencia elástica alrededor de los muslos para aumentar la dificultad. Este ejercicio se centra en la estabilidad y trabaja la cadena cinética cerrada del lado que está sosteniendo el peso del cuerpo. Es importante asegurarse de que la pelvis no se hunda del lado que no está soportando el peso.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/lvmZ0EwHxZ8"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/ejerciciocadera3': View(
+            "/ejerciciocadera3",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciocadera3,
+                           Text('Ejercicio 3', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente se apoya contra la pared con los pies adelantados y separados a la distancia de los hombros. Luego, se desliza hacia abajo por la pared flexionando las caderas y las rodillas, mientras mueve los tobillos hacia arriba. Después, vuelve a subir deslizando la espalda por la pared, extendiendo las caderas y las rodillas, y moviendo los tobillos hacia abajo.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/_yJUZsq1sKc"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/ejerciciocadera4': View(
+            "/ejerciciocadera4",
+            [
+               
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciocadera4,
+                           Text('Ejercicio 4', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente está acostado de lado, con la pierna de abajo alineada con el cuerpo; la pierna de arriba está doblada hacia adelante, con el pie en el suelo o el muslo apoyado en un cojín. Luego, el paciente levanta la pierna de abajo hacia adentro. Para hacerlo más desafiante, se pueden agregar pesas al tobillo.', 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/SQ1U2jWI0Ro"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+            '/ejerciciocadera5': View(
+            "/ejerciciocadera5",
+            [
+              
+               Container(
+                   width=400,
+                   height=850,
+                   bgcolor=BG,
+                   border_radius=35,
+                   content=Column(
+                       controls=[
+                           ejerciciocadera5,
+                           Text('Ejercicio 5', 
+                                size=40,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                           Text('El paciente da un paso largo hacia adelante y flexiona la cadera y la rodilla de la pierna delantera hasta que formen un ángulo de 90 grados, luego se levanta de nuevo. Este proceso se repite con la misma o la otra pierna. Puede usar un bastón o barra para mantener el equilibrio, o aprender a controlar el movimiento utilizando barras paralelas o junto a una mesa de tratamiento.'
+                                "Para aumentar la dificultad, se pueden agregar pesas, dar zancadas más amplias o inclinarse hacia adelante después de dar un paso corto.", 
+                                size=15,
+                                weight=FontWeight.BOLD,color="white",
+                                text_align='center',
+                                width=400,),
+                            Container(
+                               height=70,
+                               width=400,padding=10,
+                               bgcolor=FWG,
+                               border_radius=25,
+                               content=FloatingActionButton(
+                                text="Video de ejemplo",
+                                on_click=lambda e:(page.launch_url("https://www.youtube.com/shorts/z8uBiQ4pNTI"))))                   
+                           ]
+                       )
+                   )
+               ]
+            ),
+}
+    def route_change(route):
+        page.views.clear()
+        page.views.append(
+            pages[page.route]
+        )
+
+    page.add(container)
+
+    page.on_route_change = route_change
+    page.go(page.route)
+
+    
+
+app(target=main)
